@@ -1,0 +1,12 @@
+<div class="container home-component">
+  <h1 class="home-title">
+    Choose a generation of Pokemon Game:
+  </h1>
+  <div *ngIf='generationPokemon$ | async as generation'>
+
+    <ul >
+      <li *ngFor='let item of generation.results; let i=index' (click)='changeRoute(i, item.name)'>{{item.name}}</li>
+    </ul>
+  </div>
+</div>
+   

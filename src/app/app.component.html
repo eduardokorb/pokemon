@@ -1,7 +1,3 @@
+<app-header></app-header>
 <router-outlet></router-outlet>
-<div *ngIf='generationPokemon$ | async as generation'>
-  <p>{{generation.count}}</p>
-  <ul *ngFor='let item of generation.results; let i=index'>
-    <li (click)='trocarRota(i)'>{{item.name}}</li>
-  </ul>
-</div>
+<app-footer></app-footer>

@@ -1,0 +1,24 @@
+.header {
+  background-color: #007cba;
+  margin-bottom: 20px;
+}
+  
+.header .logo {
+  width: 40px;
+  padding: 8px 5px;
+}
+
+.container-logo {
+  display: flex;
+  outline: none;
+  border: none;
+}
+
+.container-logo span {
+  display: flex;
+  align-items: center;
+  color: white;
+  margin-left: 5px;
+}
+  
+  

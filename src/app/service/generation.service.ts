@@ -16,4 +16,12 @@ export class GenerationService {
   getGeneration(id) {
     return this.http.get(`https://pokeapi.co/api/v2/generation/${id}/`) 
   }
+
+  getPokemon(pokemonId) {
+    return this.http.get(`https://pokeapi.co/api/v2/pokemon/${pokemonId}/`)
+  }
+
+  getDataPokemon(url) {
+    return this.http.get(url)
+  }
 }

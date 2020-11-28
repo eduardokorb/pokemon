@@ -1,0 +1,24 @@
+.home-component {
+  height: 71vh;
+}
+.home-title {
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  column-count: 2;
+  width: 50%;
+  margin: auto;
+}
+
+li {
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 15px;
+}
+
+li:hover {
+  color: #f4c73d;
+}

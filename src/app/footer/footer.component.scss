@@ -1,0 +1,36 @@
+.footer-container {
+  margin-top: 20px;
+  background-color: #e70626;
+  height: auto !important;
+  padding: 10px 0;
+  bottom: 0;
+
+}
+
+.footer {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+  }
+  
+  .footer > span {
+    font-size: 1rem ;
+    font-weight: 300;
+  }
+
+  .footer p {
+    color: white;
+    font-size: 20px;
+    font-weight: 300;
+    text-align: center;
+    margin: 0;
+  }
+
+  .logo {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+    margin-bottom: flex;
+    max-height: 60px;
+  }
+  

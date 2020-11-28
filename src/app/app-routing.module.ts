@@ -2,11 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { GenerationComponent } from './generation/generation.component';
+import { HomeComponent } from './home/home.component'
 
 
 const routes: Routes = [
-  {path:'', component: AppComponent},
-  {path:'generation', component: GenerationComponent}
+  { path: '', component: HomeComponent },
+  { path: 'generation', component: GenerationComponent }
 ]
 
 @NgModule({

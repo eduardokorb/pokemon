@@ -1,0 +1,115 @@
+table {
+  width: 100%;
+}
+
+tr.detail-row {
+  height: 0;
+}
+
+.generation-title {
+  text-align: center;
+  font-size: 30px;
+}
+
+tr.element-row:not(.expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.element-row:not(.expanded-row):active {
+  background: #efefef;
+}
+
+.element-row td {
+  border-bottom-width: 0;
+}
+
+.element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.element-diagram {
+  min-width: 80px;
+  border: 2px solid black;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px 0;
+  height: 104px;
+}
+
+.element-symbol {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: normal;
+}
+
+.element-description {
+  padding: 16px;
+}
+
+.element-description-attribution {
+  opacity: 0.5;
+}
+.mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+
+.container-list-games ::ng-deep .mat-expansion-panel-body {
+  display: flex;
+}
+
+.container-list-games {
+  margin-bottom: 15px;
+}
+
+.container-list-games ul {
+  list-style: none;
+  padding: 0;
+  column-count: 2;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.container-search {
+  border: none;
+  width: 100%;
+  max-width: 1230px;
+  border-bottom: 1px solid #007cba;
+  line-height: 30px;
+  outline: none;
+  padding: 10px;
+}
+
+.loading {
+  margin: auto;
+}
+
+.loading img {
+  width: 200px;
+}
+
+::ng-deep .expanded-row {
+  border-color: red;
+}
+
+::ng-deep .ng-trigger-detailExpand {
+  justify-content: space-evenly;
+}
+
+.container-pokemon--img img {
+  width: 150px;
+}
+.container-pokemon--data {
+  align-items: center;
+  display: flex;
+}
+.container-pokemon--data ul {
+  list-style: none;
+  padding: 0;
+  column-count: 2;
+  margin: auto;
+}
+
+.container-pokemon--data .pokemon-data-item {
+  text-transform: capitalize;
+} 

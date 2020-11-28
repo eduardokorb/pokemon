@@ -1,32 +1,72 @@
-
-<h1>
+<div class="container">
+  <h1 class="generation-title">
     {{generationName?.name}}
-</h1>  
-<div>
-      <ul *ngFor='let game of gameName'>
+  </h1>
+
+  <div class="container-list-games mat-elevation-z2">
+    <mat-accordion>
+      <mat-expansion-panel class="container-expansion" (opened)="panelOpenState = true"
+        (closed)="panelOpenState = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Click to see the list of games of this generation
+          </mat-panel-title>
+
+        </mat-expansion-panel-header>
+        <ul *ngFor='let game of gameName'>
           <li>
             {{game.name}}
           </li>
-      </ul>
+        </ul>
+      </mat-expansion-panel>
+    </mat-accordion>
   </div>
+
   <div class="mat-elevation-z8">
-    <!-- <mat-form-field>
-        <mat-label>Filter</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. bulbasaur" #input>
-    </mat-form-field> -->
-    <table mat-table [dataSource]="dataSource" matSort>     
-      <ng-container matColumnDef="name">
-        <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
-        <td mat-cell *matCellDef="let row"> {{row.name}} </td>
+
+    
+    <input teste class="container-search" (keyup)="applyFilter($event)" placeholder="Ex. Pikachu">
+
+    <table mat-table [dataSource]="dataSource" multiTemplateDataRows class="mat-elevation-z8">
+      <ng-container matColumnDef="{{column}}" *ngFor="let column of displayedColumns">
+        <th mat-header-cell *matHeaderCellDef> {{column}} </th>
+        <td mat-cell *matCellDef="let element"> {{element[column]}} </td>
       </ng-container>
-  
+
+      <ng-container matColumnDef="expandedDetail">
+        <td mat-cell *matCellDef="let element" [attr.colspan]="displayedColumns.length">
+          <div class="element-detail" [@detailExpand]="element == expandedElement ? 'expanded' : 'collapsed'">
+            <div class="loading" *ngIf='loading; else dataPokemon'>
+              <img
+                src='../../assets/img/KG12.gif'>
+            </div>
+            <ng-template class="container-pokemon" #dataPokemon>
+
+              
+              <div class="container-pokemon--img">
+                <img
+                  src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/{{pokemon.id}}.svg'>
+              </div>
+
+              <div class="container-pokemon--data">
+                <ul>
+                  <li *ngFor='let item of pokemon?.stats; let i=index' class="pokemon-data-item">
+                    {{item.stat.name}}: <strong>{{item.base_stat}}</strong>
+                  </li>
+                </ul>
+              </div>
+            </ng-template>
+          </div>
+        </td>
+      </ng-container>
+
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  
-      <tr class="mat-row" *matNoDataRow>
-        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+      <tr mat-row *matRowDef="let element; columns: displayedColumns;" class="element-row"
+        [class.expanded-row]="expandedElement === element" (click)="getPokemon(expandedElement, element)">
       </tr>
+      <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" class="detail-row"></tr>
     </table>
-  
-    <mat-paginator [pageSizeOptions]="[10, 25, 100]" [pageSize]="10" [length]="dataSource.length" showFirstLastButtons ></mat-paginator>
+
+    <mat-paginator [pageSizeOptions]="[10, 25, 100]" [pageSize]="10" showFirstLastButtons></mat-paginator>
   </div>
+</div>
